@@ -1,0 +1,156 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: gilroy;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+}
+#main{
+  height: 100%;
+  width: 100%;
+  background-color: aqua;
+  display: flex;
+}
+#left{
+  height: 100%;
+  width: 25%;
+  background-color: #dadada;
+}
+#right{
+  height: 100%;
+  width: 75%;
+  background-color: #f3f3f3;
+}
+#left #filedets{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+}
+#icons{
+  display: flex;
+  gap: 15px;
+}
+#files{
+  padding: 20px 10px;
+  font-weight: 600;
+}
+#left form{
+  display: none;
+  margin-bottom: 20px;
+  width: 100%;
+}
+#left form input{
+  padding: 8px 10px;
+  width: 70%;
+  outline-color: rgb(65, 225, 156);
+  border: 2px solid #f3f3f3;
+  font-weight: 600;
+}
+#files .elem{
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+.rightel{
+  display: flex;
+  gap: 15px;
+}
+.rightel i{
+  opacity: 0;
+}
+#files .elem:hover .rightel i{
+   opacity: 1;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+#right .rnav{
+  height: 50px;
+  width: 100%;
+  background-color: blueviolet;
+}
+.file{
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  gap: 20px;
+  font-weight: 500;
+  width: fit-content;
+  height: 100%;
+  background-color: #fff;
+}
+form{
+  width: 100%;
+  height: calc(100% - 50px);
+}
+
+textarea{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 20px;
+  font-family: "Consolas";
+  font-size: 20px;
+  font-weight: 600;
+  width: 100%;
+  height: 98%;
+}
+
+#submitbtn{
+  position: absolute;
+  top: 1%;
+  right: 3%;
+  padding: 10px 15px;
+}
+
+#popup{
+  height: 100%;
+  width: 100%;
+  background-color: #dadadaad;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+ display: flex;
+ display: none;
+}
+
+#pop-card{
+  width: 300px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 12px;
+}
+#pop-card hr{
+  opacity: .7;
+}
+#pop-card h3{
+  margin-bottom: 10px;
+}
+
+#pop-card input{
+  width: 100%;
+  outline-color: royalblue;
+ padding: 11px 20px;
+ border-radius: 5px;
+  border: 2px solid #dadada;
+  margin-top: 10px;
+}
+
+
+#pop-card #submit{
+  padding: 10px 20px;
+  background-color: royalblue;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1vw;
+}

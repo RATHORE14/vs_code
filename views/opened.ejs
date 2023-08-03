@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="main">
+        <div id="left">
+            <div id="filedets">
+                <h3>folder name</h3>
+                <div id="icons">
+                    <i id="fileicon" class="ri-file-line"></i>
+                    <i id="foldericon" class="ri-folder-add-fill"></i>
+                  <a href="/back"> <i class="ri-restart-line"></i></a> 
+                </div>
+            </div>
+            <div id="files">
+                <form id="fileform" action="/createfile">
+                    <input type="text" name="filename" placeholder="Enter file name">
+                </form>
+                <form id="folderform" action="/createfolder">
+                    <input type="text" name="foldername" placeholder="Enter folder name">
+                </form>
+                <% files.forEach(function(val){ %>
+                    <div class="elem">
+                       <div class="leftel">
+                        <% if(val.isDirectory()){ %>
+                            <i class="ri-folder-add-fill"></i>
+                            <%=val.name %>
+                                <% }else{ %>
+                                <a href="/file/<%= val.name %>">
+                                    <i class="ri-file-fill"></i>
+                                    <%=val.name %>
+                                </a>
+                                        <% } %>
+                       </div>
+                       <div class="rightel">
+                        <i class="ri-edit-2-line"></i>
+                        <!-- <a href="/delete/<%= val.name %>"><i class="ri-delete-bin-7-line"></i></a> -->
+                      <%  if(val.isDirectory()){ %>
+                        <a href="/delete/folder/<%= val.name %>"><i class="ri-delete-bin-7-line"></i></a>
+                     <%   }else{%>
+                        <a href="/delete/file/<%= val.name %>"><i class="ri-delete-bin-7-line"></i></a>
+                     <%   }  %>
+                       </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+        <div id="right">
+            <div class="rnav">
+                <div class="file"><%= filename %> <a href="/"> <i class="ri-close-line"></i></div></a>
+            </div>
+            <form action="/update/<%= filename %>" method="post">
+                <textarea name="data" style="resize: none;"><%= filedata %></textarea>
+                <input id="submitbtn" type="submit" value="Save File">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function off() {
+            document.querySelectorAll("#files form").forEach(function (frm) {
+                frm.style.display = "none"
+            })
+        }
+        document.querySelector("#fileicon").addEventListener("click", function () {
+            off();
+            document.querySelector("#fileform").style.display = "block"
+        })
+        document.querySelector("#foldericon").addEventListener("click", function () {
+            off();
+            document.querySelector("#folderform").style.display = "block"
+        })
+    </script>
+</body>
+
+</html>
